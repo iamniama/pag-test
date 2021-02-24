@@ -23,9 +23,60 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.red{
+  color: red;
+}
+
+.skyblue{
+  color: skyblue;
+}
+
+.green{
+  color: green;
+}
+
+whitesmoke{
+  color: whitesmoke;
+}
+
+.goldenrod{
+  color: goldenrod;
+}
+
+.lightpurple{
+  color: coral;
+}
+
+.paleblue{
+  color: #61dafb;
+}
+
+.chocolate{
+  color: chocolate;
+}
+
+.darkred{
+  color: darkred;
+}
 
 .App-link {
   color: #61dafb;
+}
+
+.list-wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+
+
+
+.nav-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 50px;
 }
 
 @keyframes App-logo-spin {

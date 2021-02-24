@@ -1,22 +1,21 @@
-import logo from './logo.svg';
+
 import './App.css';
+import List from './list'
 
 function App() {
+    const dataItems = [
+        {word: "bluejay", color: "red"},
+        {word: "Orinoco", color: "green"},
+        {word: "politico", color: "whitesmoke"},
+        {word: "night", color: "lightpurple"},
+        {word: "purple", color: "goldenrod"},
+        {word: "pinto", color: "skyblue"},
+        {word: "19", color: "darkred"},
+        {word: "Allegheny", color: "chocolate"}]
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          <List items={dataItems} />
       </header>
     </div>
   );
