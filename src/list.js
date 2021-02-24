@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button'
 
 class List extends React.Component {
     constructor(props){
@@ -42,8 +43,8 @@ class List extends React.Component {
 
                 <h1 className={item.color}>{item.word}</h1>
                 <div className="nav-row">
-                    <button onClick={(e) => this.decIndex(e)}>Left</button>
-                    <button onClick={(e) => this.incIndex(e)}>Right</button>
+                    <Button variant="outline-primary" onClick={(e) => this.decIndex(e)}>Left</Button>
+                    <Button variant="outline-primary" onClick={(e) => this.incIndex(e)}>Right</Button>
 
                 </div>
             </div>

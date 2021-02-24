@@ -67,6 +67,8 @@ whitesmoke{
   display: flex;
   flex-direction: column;
   width: 25%;
+  border: 2px outset whitesmoke;
+  border-radius: 25%;
 }
 
 
@@ -74,9 +76,11 @@ whitesmoke{
 .nav-row{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   width: 100%;
   margin-top: 50px;
+
+
 }
 
 @keyframes App-logo-spin {
