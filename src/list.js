@@ -16,21 +16,30 @@ class List extends React.Component {
 
     //colorFiddle is called by all eventListeners (need to look into bind)
     //and subtly adjusts the backgroundColor of the page
-    colorFiddle() {
+    //I added a multiplier so that certain words can cause a more significant shift
+    colorFiddle(mult) {
         //randomly choose red, green, or blue for the rgb, and assign that color name to a variable
         //so that we can use it to change state later
         const colors = ["red", "green", "blue"]
         let changeColor = colors[Math.floor(Math.random() * colors.length)]
         //get the current value of the randomly selected color from state
         let ccVal = this.state[changeColor]
+
         //flip a coin, if heads, add a random 1-5 to the value,
         //tails, subtract the same
+        //also, there is some bounds checking to prevent values greater than 255 and less than 0
         switch (Math.floor(Math.random() * 2)){
             case 0:
-                ccVal += Math.floor(Math.random() * 5)
+                if (ccVal >= 240) {
+                    ccVal = ccVal / 2
+                }
+                ccVal += Math.floor(Math.random() * 5 * mult)
                 break;
             case 1:
-                ccVal -= Math.floor(Math.random() * 5)
+                if (ccVal <= 10) {
+                    ccVal = ccVal * mult
+                }
+                ccVal -= Math.floor(Math.random() * 5 * mult)
                 break;
             default:
                 break;
@@ -41,8 +50,12 @@ class List extends React.Component {
         })
     }
 
-    decIndex(e) {
-        this.colorFiddle()
+    decIndex(e, word) {
+        if (word === "LATITUDE"){
+            this.colorFiddle(10)
+        }else {
+            this.colorFiddle(1)
+        }
         if (this.state.currentIndex > 0) {
             this.setState({
                 currentIndex: this.state.currentIndex - 1
@@ -52,10 +65,15 @@ class List extends React.Component {
                 currentIndex: this.state.itemArray.length - 1
             })
         }
+
     }
 
-    incIndex(e) {
-        this.colorFiddle()
+    incIndex(e, word) {
+        if (word === "LATITUDE"){
+            this.colorFiddle(10)
+        }else {
+            this.colorFiddle(1)
+        }
         if (this.state.currentIndex < this.state.itemArray.length - 1) {
             this.setState({
                 currentIndex: this.state.currentIndex + 1
@@ -65,10 +83,13 @@ class List extends React.Component {
                 currentIndex: 0
             })
         }
+
     }
 
 
+
     render() {
+
         let item = this.state.itemArray[this.state.currentIndex]
         //let item = itemList[this.state.currentIndex].word
         return(
@@ -77,8 +98,8 @@ class List extends React.Component {
 
                 <h1 style={{color: `${item.color}`}}>{item.word}</h1>
                 <div className="nav-row">
-                    <Button variant="outline-primary" type="button" onClick={(e) => this.decIndex(e)}>Left</Button>
-                    <Button variant="outline-primary" type="button" onClick={(e) => this.incIndex(e)}>Right</Button>
+                    <Button variant="outline-primary" type="button" onClick={(e) => this.decIndex(e, item.word)}>Left</Button>
+                    <Button variant="outline-primary" type="button" onClick={(e) => this.incIndex(e, item.word)}>Right</Button>
 
                 </div>
             </div>

@@ -16,7 +16,8 @@ function App() {
         {word: "WILL", color: "darkred"},
         {word: "dreams", color: "whitesmoke"},
         {word: "faith", color: "black"},
-        {word: "blue", color: "darkred"}]
+        {word: "blue", color: "darkred"},
+        {word: "LATITUDE", color: "paleturquoise"}]
   return (
     <div className="App">
 
